@@ -18,4 +18,18 @@ class PropertyClass(object):
 # -------------------------------------- #
 
 
+# __getattribute__ and __getattr__ methods
+class GetAttrsMethods(object):
+    def __init__(self, name):
+        self.name = name
+
+    def __getattribute__(self, item):
+        if item == 'alias':
+            return self.__class__.__name__.lower()
+
+        else:
+            return object.__getattribute__(self, item)
+
+    def __setattr__(self, key, value):
+        key = value
 
