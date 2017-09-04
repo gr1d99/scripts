@@ -23,7 +23,7 @@ class CarMeta(type):
         super_new = super(CarMeta, mcs).__new__
 
         # Also ensure initialization is only performed for subclasses of Model
-        # (excluding Model class itself).
+        # (excluding Car class itself).
 
         parents = [b for b in bases if isinstance(b, CarMeta)]
         if not parents:
